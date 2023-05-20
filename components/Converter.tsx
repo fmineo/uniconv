@@ -25,7 +25,7 @@ const Converter: React.FC<ConverterProps> = ({
     const [outputValue, setOutputValue] = useState(defaultOutputValue);
     const [errorMessage, setErrorMessage] = useState("");
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInputValue(e.target.value);
         setOutputValue(conversionFunction(e.target.value));
         
