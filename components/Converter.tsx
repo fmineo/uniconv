@@ -42,7 +42,7 @@ const Converter: React.FC<ConverterProps> = ({
                 <input
                     type="number"
                       placeholder={`Inserisci un valore`}
-                    className="border border-gray-300 rounded p-2 mb-2 text-center"
+                    className="border border-gray-300 rounded p-2 mb-2 text-center w-full"
                     value={inputValue}
                     step={"0.01"}
                     onChange={handleInputChange}

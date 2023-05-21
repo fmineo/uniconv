@@ -10,8 +10,8 @@ class Sidebar extends React.Component<SidebarProps> {
         const { appName } = this.props;
 
         return (
-            <aside className="relative bg-sidebar h-screen w-80 hidden sm:block shadow-xl">
-                <div className="p-5">
+            <aside className="relative bg-sidebar h-screen w-96 hidden sm:block shadow-xl overflow-y-auto">
+                <div className="p-5 sticky top-0 bg-sidebar z-10">
                     <a
                         href="/"
                         className="text-white text-2xl font-semibold uppercase hover:text-gray-300"

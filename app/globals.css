@@ -4,5 +4,4 @@
 
 
 .bg-sidebar { background: #3d68ff; }
-.active-nav-link { background: #1947ee; }
-.nav-item:hover { background: #1947ee; }
+.active-nav-link,.nav-item:hover { background: #1131a5; }
