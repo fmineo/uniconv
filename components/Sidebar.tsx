@@ -6,6 +6,9 @@ interface SidebarProps {
 }
 
 class Sidebar extends React.Component<SidebarProps> {
+    onClose = () => {
+        return false;
+    }
     render() {
         const { appName } = this.props;
 
@@ -20,7 +23,7 @@ class Sidebar extends React.Component<SidebarProps> {
                     </a>
                 </div>
                 <nav className="text-white text-base font-semibold pt-3">
-                    <Menu />
+                    <Menu onClose={this.onClose}/>
                 </nav>
             </aside>
         );

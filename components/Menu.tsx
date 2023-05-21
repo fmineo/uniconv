@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import MenuLink from "./MenuLink";
 
-const Menu = () => {
+const Menu = ({ onClose }: { onClose: () => void }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [isCommand, setIsCommand] = useState(false);
     const searchInputRef = useRef<HTMLInputElement>(null);
@@ -113,9 +113,9 @@ const Menu = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 stroke="#fff"
-                                stroke-width="1"
-                                stroke-linecap="round"
-                                stroke-linejoin="miter"
+                                strokeWidth="1"
+                                strokeLinecap="round"
+                                strokeLinejoin="miter"
                             >
                                 <rect x="8" y="8" width="8" height="8"></rect>
                                 <path d="M5,2H5A3,3,0,0,0,2,5H2A3,3,0,0,0,5,8H8V5A3,3,0,0,0,5,2Z"></path>
@@ -151,6 +151,7 @@ const Menu = () => {
                         title={link.title}
                         from={link.from}
                         to={link.to}
+                        onClose={onClose}
                     />
                 ))
             )}

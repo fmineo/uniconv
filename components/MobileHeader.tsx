@@ -10,11 +10,11 @@ interface MobileHeaderProps {
 
 const MobileHeader: React.FC<MobileHeaderProps> = ({ isOpen, onClose, appName }) => {
     return (
-        <header className="w-full bg-sidebar py-5 px-6 sm:hidden">
-            <div className="flex items-center justify-between">
+        <header className={`w-full bg-sidebar px-6 sm:hidden h-fit ${isOpen ? 'sidebar-open' : ''}`}>
+            <div className="flex items-center justify-between sticky top-0 z-10 bg-sidebar">
                 <a
-                    href="index.html"
-                    className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
+                    href="/"
+                    className="text-white py-4 text-3xl font-semibold uppercase hover:text-gray-300 bg-sidebar"
                 >
                     {appName}
                 </a>
@@ -27,8 +27,8 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ isOpen, onClose, appName })
                 </button>
             </div>
             {isOpen && (
-                <nav className="flex flex-col pt-4">
-                    <Menu />
+                <nav className="flex flex-col pt-4 min-h-[100px]">
+                    <Menu onClose={onClose}/>
                 </nav>
             )}
         </header>

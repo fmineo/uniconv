@@ -5,3 +5,6 @@
 
 .bg-sidebar { background: #3d68ff; }
 .active-nav-link,.nav-item:hover { background: #1131a5; }
+header.sidebar-open {
+    @apply overflow-y-auto min-h-[200px]
+}
