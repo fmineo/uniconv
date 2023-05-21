@@ -41,7 +41,7 @@ const Converter: React.FC<ConverterProps> = ({
             return (
                 <input
                     type="number"
-                    //   placeholder={`Enter the ${title.toLowerCase()} value`}
+                      placeholder={`Inserisci un valore`}
                     className="border border-gray-300 rounded p-2 mb-2 text-center"
                     value={inputValue}
                     step={"0.01"}
@@ -51,7 +51,7 @@ const Converter: React.FC<ConverterProps> = ({
         } else if (inputType === "textarea") {
             return (
                 <textarea
-                    //   placeholder={`Enter the ${title.toLowerCase()} value`}
+                      placeholder={`Inserisci un valore`}
                     className="border border-gray-300 rounded p-2 mb-2 w-full"
                     rows={5}
                     value={inputValue}
@@ -62,7 +62,7 @@ const Converter: React.FC<ConverterProps> = ({
             return (
                 <input
                     type="text"
-                    //   placeholder={`Enter the ${title.toLowerCase()} value`}
+                    placeholder={`Inserisci un valore`}
                     className="border border-gray-300 rounded p-2 mb-2 text-center w-full"
                     value={inputValue}
                     onChange={handleInputChange}
@@ -93,6 +93,7 @@ const Converter: React.FC<ConverterProps> = ({
                             onClick={handleCopyClick}
                             data-tooltip-id="copy-tooltip"
                             data-tooltip-content="Copia negli appunti!"
+                            aria-label="Copia"
                         >
                             <BiCopy />
                         </button>

@@ -21,6 +21,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ isOpen, onClose, appName })
                 <button
                     onClick={onClose}
                     className="text-white text-3xl focus:outline-none"
+                    aria-label="Menu"
                 >
                     {isOpen ? <FaTimes /> : <FaBars />}
                 </button>
