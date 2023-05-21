@@ -11,11 +11,8 @@ const Menu = () => {
     };
 
     const handleKeyPress = (e: KeyboardEvent) => {
-        console.log(e.key);
-        console.log(e.ctrlKey || e.metaKey);
         if ((e.ctrlKey || e.metaKey) && e.key === "k") {
           e.preventDefault();
-          console.log("OK")
           searchInputRef.current?.focus();
         }
       };
@@ -52,7 +49,30 @@ const Menu = () => {
             from: "ASCII",
             to: "Testo",
         },
-        // ... Altre voci del menu ...
+        {
+            href: "urlencode",
+            title: "URL Encoder",
+            from: "URL",
+            to: "Encode",
+        },
+        {
+            href: "urldecode",
+            title: "URL Decoder",
+            from: "URL",
+            to: "Decode",
+        },
+        {
+            href: "btoa",
+            title: "Base64 Encoder",
+            from: "Base64",
+            to: "Encode",
+        },
+        {
+            href: "atob",
+            title: "Base64 Decoder",
+            from: "Base64",
+            to: "Decode",
+        },
     ];
 
     const filteredMenuLinks = menuLinks.filter((link) =>
@@ -86,54 +106,6 @@ const Menu = () => {
                     />
                 ))
             )}
-            {/* <MenuLink
-                href="mi2km"
-                title="Da Miglia a Chilometri"
-                from="Miglia"
-                to="Chilometri"
-            />
-            <MenuLink
-                href="km2mi"
-                title="Da Chilometri a Miglia"
-                from="Chilometri"
-                to="Miglia"
-            />
-            <MenuLink
-                href="text2ascii"
-                title="Da Testo ad ASCII"
-                from="Testo"
-                to="ASCII"
-            />
-            <MenuLink
-                href="ascii2text"
-                title="Da ASCII a testo"
-                from="ASCII"
-                to="Testo"
-            />
-            <MenuLink
-                href="urlencode"
-                title="URL Encoder"
-                from="URL"
-                to="Encode"
-            />
-            <MenuLink
-                href="urldecode"
-                title="URL Decoder"
-                from="URL"
-                to="Decode"
-            />
-            <MenuLink
-                href="btoa"
-                title="Base64 Encoder"
-                from="Base64"
-                to="Encode"
-            />
-            <MenuLink
-                href="atob"
-                title="Base64 Decoder"
-                from="Base64"
-                to="Decode"
-            /> */}
         </>
     );
 };
