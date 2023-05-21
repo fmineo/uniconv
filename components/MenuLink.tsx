@@ -22,7 +22,7 @@ const MenuLink = (props: Props) => {
     };
 
     const handleLinkClick = () => {
-        onClose(); // Chiudi il menu quando viene cliccato un link
+        onClose();
     };
 
     return (

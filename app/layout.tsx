@@ -1,7 +1,6 @@
-"use client";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import React, { useState } from "react";
+import React from "react";
 import Sidebar from "@/components/Sidebar";
 import MobileHeader from "@/components/MobileHeader";
 
@@ -9,25 +8,22 @@ const inter = Inter({ subsets: ["latin"] });
 
 const appName = "UniConv";
 
+export const metadata = {
+    manifest: "/manifest.json"
+};
+
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-    const toggleSidebar = () => {
-        setSidebarOpen(!isSidebarOpen);
-    };
-
     return (
         <html lang="en">
             <body className={inter.className}>
                 <div className="flex bg-gray-100">
-                    <Sidebar appName={appName}/>
+                    <Sidebar appName={appName} />
                     <div className="relative w-full flex flex-col h-screen overflow-y-hidden">
-
-                        <MobileHeader appName={appName} isOpen={isSidebarOpen} onClose={toggleSidebar}/>
+                        <MobileHeader appName={appName} />
 
                         <div className="w-full h-screen overflow-x-hidden border-t flex flex-col">
                             <main className="w-full flex-grow p-6">

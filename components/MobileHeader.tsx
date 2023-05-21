@@ -1,16 +1,26 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Menu from "./Menu";
-import {FaBars, FaTimes} from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 interface MobileHeaderProps {
     isOpen: boolean;
-    onClose: () => void;
     appName: string;
 }
 
-const MobileHeader: React.FC<MobileHeaderProps> = ({ isOpen, onClose, appName }) => {
+const MobileHeader: React.FC<{ appName: string }> = ({ appName }) => {
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!isSidebarOpen);
+    };
+
     return (
-        <header className={`w-full bg-sidebar px-6 sm:hidden h-fit ${isOpen ? 'sidebar-open' : ''}`}>
+        <header
+            className={`w-full bg-sidebar px-6 sm:hidden h-fit ${
+                isSidebarOpen ? "sidebar-open" : ""
+            }`}
+        >
             <div className="flex items-center justify-between sticky top-0 z-10 bg-sidebar">
                 <a
                     href="/"
@@ -19,16 +29,16 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ isOpen, onClose, appName })
                     {appName}
                 </a>
                 <button
-                    onClick={onClose}
+                    onClick={toggleSidebar}
                     className="text-white text-3xl focus:outline-none"
                     aria-label="Menu"
                 >
-                    {isOpen ? <FaTimes /> : <FaBars />}
+                    {isSidebarOpen ? <FaTimes /> : <FaBars />}
                 </button>
             </div>
-            {isOpen && (
+            {isSidebarOpen && (
                 <nav className="flex flex-col pt-4 min-h-[100px]">
-                    <Menu onClose={onClose}/>
+                    <Menu onClose={toggleSidebar} />
                 </nav>
             )}
         </header>
