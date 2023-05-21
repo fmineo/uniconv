@@ -5,9 +5,10 @@ import {FaBars, FaTimes} from "react-icons/fa";
 interface MobileHeaderProps {
     isOpen: boolean;
     onClose: () => void;
+    appName: string;
 }
 
-const MobileHeader: React.FC<MobileHeaderProps> = ({ isOpen, onClose }) => {
+const MobileHeader: React.FC<MobileHeaderProps> = ({ isOpen, onClose, appName }) => {
     return (
         <header className="w-full bg-sidebar py-5 px-6 sm:hidden">
             <div className="flex items-center justify-between">
@@ -15,7 +16,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ isOpen, onClose }) => {
                     href="index.html"
                     className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
                 >
-                    Convertitore
+                    {appName}
                 </a>
                 <button
                     onClick={onClose}

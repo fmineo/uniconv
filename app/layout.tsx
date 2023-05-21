@@ -7,6 +7,7 @@ import MobileHeader from "@/components/MobileHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const appName = "UniConv";
 
 export default function RootLayout({
     children,
@@ -23,10 +24,10 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <div className="flex bg-gray-100">
-                    <Sidebar />
+                    <Sidebar appName={appName}/>
                     <div className="relative w-full flex flex-col h-screen overflow-y-hidden">
 
-                        <MobileHeader isOpen={isSidebarOpen} onClose={toggleSidebar}/>
+                        <MobileHeader appName={appName} isOpen={isSidebarOpen} onClose={toggleSidebar}/>
 
                         <div className="w-full h-screen overflow-x-hidden border-t flex flex-col">
                             <main className="w-full flex-grow p-6">
