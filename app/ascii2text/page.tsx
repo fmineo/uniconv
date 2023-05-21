@@ -2,6 +2,7 @@ import ConvertitoreASCIITesto from "@/components/converters/ContertitoreAsciiTes
 
 export const metadata = {
   title: 'Convertitore da ASCII a Testo',
+  description: 'Convertitore da ASCII a Testo',
 };
 
 export default function AsciiToText() {
