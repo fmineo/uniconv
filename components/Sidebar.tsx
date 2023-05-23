@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Menu from "./Menu";
+import Image from "next/image";
 
 interface SidebarProps {
     appName: string;
@@ -20,6 +21,7 @@ class Sidebar extends React.Component<SidebarProps> {
                         href="/"
                         className="text-white text-2xl font-semibold uppercase hover:text-gray-300"
                     >
+                        <Image className="inline-block mr-4" src={"/apple-touch-icon.png"} alt="logo" width={36} height={36}/> 
                         {appName}
                     </a>
                 </div>

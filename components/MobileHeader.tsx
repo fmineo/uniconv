@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Menu from "./Menu";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Image from "next/image";
 
 interface MobileHeaderProps {
     isOpen: boolean;
@@ -26,6 +27,7 @@ const MobileHeader: React.FC<{ appName: string }> = ({ appName }) => {
                     href="/"
                     className="text-white py-4 text-3xl font-semibold uppercase hover:text-gray-300 bg-sidebar"
                 >
+                    <Image className="inline-block mr-4" src={"/apple-touch-icon.png"} alt="logo" width={36} height={36}/> 
                     {appName}
                 </a>
                 <button

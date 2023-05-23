@@ -46,6 +46,12 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
 
     const menuLinks = [
         {
+            href: "currency",
+            title: "Convertitore Valuta",
+            from: "Valuta",
+            to: "Valuta",
+        },
+        {
             href: "mi2km",
             title: "Da Miglia a Chilometri",
             from: "Miglia",
@@ -93,6 +99,7 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
             from: "Base64",
             to: "Decode",
         },
+        
     ];
 
     const filteredMenuLinks = menuLinks.filter((link) =>

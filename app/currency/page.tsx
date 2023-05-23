@@ -5,7 +5,7 @@ export const metadata = {
   description: 'Convertitore Valuta',
 };
 
-export default function Home() {
+export default function valuta() {
   return (
     <>
         <CurrencyConverter />

@@ -17,7 +17,7 @@ const MenuLink = (props: Props) => {
     const { onClose } = props;
 
     const isActive = (path: string): boolean => {
-        if (path === "/mi2km" && pathname === "/") return true;
+        if (path === "/currency" && pathname === "/") return true;
         return pathname === path;
     };
 
