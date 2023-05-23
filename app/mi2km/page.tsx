@@ -1,4 +1,4 @@
-import Home from "../page";
+import ConvertitoreMigliaKilometri from "@/components/converters/ConvertitoreMigliaKilometri";
 
 export const metadata = {
   title: 'Convertitore da Miglia a Chilometri',
@@ -8,7 +8,7 @@ export const metadata = {
 export default function MiToKm() {
   return (
     <>
-      <Home />
+      <ConvertitoreMigliaKilometri />
     </>
   )
 }
