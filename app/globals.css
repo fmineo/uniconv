@@ -8,3 +8,22 @@
 header.sidebar-open {
     @apply overflow-y-auto min-h-[200px]
 }
+
+/* sm */
+@media (max-width: 640px) { 
+    .currency-select > div:nth-child(1) {
+        max-width: 110px;
+    }
+}
+
+/* md */
+@media (min-width: 768px) {  }
+
+/* lg */
+@media (min-width: 1024px) {  }
+
+/* xl */
+@media (min-width: 1280px) {  }
+
+/* 2xl */
+@media (min-width: 1536px) {  }

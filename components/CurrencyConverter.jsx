@@ -1,5 +1,8 @@
 "use client";
 
+// provare a triggerare l'onchange solo quando è focussato il campo 
+// in questo modo non dovrei trovarmi in loop infinito
+
 import { useEffect, useState } from "react";
 import Select from "react-tailwindcss-select";
 
@@ -7,11 +10,11 @@ const CurrencyConverter = () => {
   const [currencies, setCurrencies] = useState([]);
   const [baseCurrency, setBaseCurrency] = useState({
     value: "EUR",
-    label: "Euro - EUR",
+    label: "EUR - Euro",
   });
   const [targetCurrency, setTargetCurrency] = useState({
     value: "USD",
-    label: "United States Dollar - USD",
+    label: "USD - United States Dollar",
   });
   const [amount, setAmount] = useState(1);
   const [exchangeRate, setExchangeRate] = useState(0);
@@ -27,9 +30,9 @@ const CurrencyConverter = () => {
         const currencyList = Object.keys(data.supported_codes).map((key) => ({
           value: data.supported_codes[key][0],
           label:
-            data.supported_codes[key][1] +
+            data.supported_codes[key][0] +
             " - " +
-            data.supported_codes[key][0],
+            data.supported_codes[key][1],
         }));
         setCurrencies(currencyList);
       } catch (error) {
@@ -77,17 +80,17 @@ const CurrencyConverter = () => {
   };
   
   const handleAmountChange = (e) => {
-    const inputAmount = parseFloat(e.target.value);
-    setAmount(inputAmount);
-    const converted = inputAmount * exchangeRate;
-    setConvertedAmount(converted);
+      const inputAmount = parseFloat(e.target.value);
+      setAmount(inputAmount);
+      const converted = inputAmount * exchangeRate;
+      setConvertedAmount(converted);
   };
   
   const handleConvertedAmountChange = (e) => {
-    const inputAmount = parseFloat(e.target.value);
-    setConvertedAmount(inputAmount);
-    const converted = inputAmount / exchangeRate;
-    setAmount(converted);
+      const inputAmount = parseFloat(e.target.value);
+      setConvertedAmount(inputAmount);
+      const converted = inputAmount / exchangeRate;
+      setAmount(converted);
   };
   
   const selectOptions = currencies
@@ -99,7 +102,7 @@ const CurrencyConverter = () => {
   
   const selectStyles = {
     menuButton: ({ isDisabled }) =>
-      `flex text-sm text-gray-500 border-none transition-all duration-300 focus:outline-none ${
+      `currency-select flex text-sm text-gray-500 border-none transition-all duration-300 focus:outline-none ${
         isDisabled ? "bg-gray-200" : "bg-white hover:border-gray-400"
       }`,
     menu: "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700",
@@ -109,6 +112,7 @@ const CurrencyConverter = () => {
           ? `text-white bg-blue-500`
           : `text-gray-500 hover:bg-blue-100 hover:text-blue-500`
       }`,
+      
   };
   
   return (
@@ -118,7 +122,7 @@ const CurrencyConverter = () => {
       <div className="mb-5">
         1 {baseCurrency.value} ={" "}
         <strong>
-          {exchangeRate.toFixed(2)} {targetCurrency.value}
+          {exchangeRate} {targetCurrency.value}
         </strong>
       </div>
   
@@ -127,11 +131,11 @@ const CurrencyConverter = () => {
           <input
             type="number"
             id="amount"
-            value={amount.toFixed(2)}
+            value={amount}
             step="0.01"
             onChange={handleAmountChange}
             autoComplete="off"
-            className="text-center w-28 outline-none"
+            className="text-center w-full outline-none"
             placeholder="1"
           />
           <span className="w-1 border-l h-7 mx-5"></span>
@@ -139,6 +143,7 @@ const CurrencyConverter = () => {
             classNames={selectStyles}
             options={currencies}
             searchInputPlaceholder="Cerca..."
+            noOptionsMessage="Nessun risultato..."
             placeholder="Seleziona una valuta"
             isSearchable={true}
             value={baseCurrency}
@@ -150,17 +155,18 @@ const CurrencyConverter = () => {
           <input
             type="number"
             id="convertedAmount"
-            value={convertedAmount.toFixed(2)}
+            value={convertedAmount}
             step="0.01"
             onChange={handleConvertedAmountChange}
             autoComplete="off"
-            className="text-center w-28 outline-none"
+            className="text-center w-full outline-none"
             placeholder="1"
           />
           <span className="w-1 border-l h-7 mx-5"></span>
           <Select
             options={selectOptions}
             searchInputPlaceholder="Cerca..."
+            noOptionsMessage="Nessun risultato..."
             placeholder="Seleziona una valuta"
             isSearchable={true}
             value={targetCurrency}
